@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750AFFD51EF9B5FA00B0D8A0 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750AFFD41EF9B5FA00B0D8A0 /* AddViewController.swift */; };
 		756707A31EF8C407006C5E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756707A21EF8C407006C5E2A /* AppDelegate.swift */; };
 		756707A51EF8C407006C5E2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756707A41EF8C407006C5E2A /* ViewController.swift */; };
 		756707A81EF8C407006C5E2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756707A61EF8C407006C5E2A /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		280E0AFAA3B7EA294230B8DD /* Pods-DatabaseSQLiteProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DatabaseSQLiteProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DatabaseSQLiteProject/Pods-DatabaseSQLiteProject.debug.xcconfig"; sourceTree = "<group>"; };
+		750AFFD41EF9B5FA00B0D8A0 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		7567079F1EF8C407006C5E2A /* DatabaseSQLiteProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseSQLiteProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		756707A21EF8C407006C5E2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756707A41EF8C407006C5E2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				756707A41EF8C407006C5E2A /* ViewController.swift */,
+				750AFFD41EF9B5FA00B0D8A0 /* AddViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				750AFFD51EF9B5FA00B0D8A0 /* AddViewController.swift in Sources */,
 				756707A51EF8C407006C5E2A /* ViewController.swift in Sources */,
 				75A825691EF8C657008E9408 /* TabelaDAO.swift in Sources */,
 				75A8256B1EF8CAB6008E9408 /* Tarefa.swift in Sources */,

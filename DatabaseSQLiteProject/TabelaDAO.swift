@@ -70,4 +70,18 @@ class TabelaDAO {
     }
     
     
+    //Function to insert at table.
+    
+    func insert(cdescricao : String){
+        
+        do {
+            let id = try db!.run(contacts.insert(descricao <- cdescricao))
+            print(id)
+        } catch  {
+            print("Couldn't insert at database.")
+        }
+        
+    }
+    
+    
 }
