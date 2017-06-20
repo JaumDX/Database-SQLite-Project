@@ -9,3 +9,22 @@
 import Foundation
 import SQLite
 
+class TabelaDAO: NSObject {
+    
+    override init() {
+        
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+        
+       // _ = try Connection("\(path)/db.sqlite3")
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+}
