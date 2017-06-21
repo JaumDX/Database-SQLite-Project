@@ -11,18 +11,24 @@ import Foundation
 class Tarefa {
     
     private let id: Int64?
-    private var descricao: String
+    var descricao: String
+    var nome: String
+    var data: Date?
     
     
     
     init(id : Int64) {
         self.id = id
         self.descricao = ""
+        self.nome = ""
+        
     }
     
-    init(id : Int64, descricao : String) {
+    init(id : Int64, nome : String,  descricao : String, data : Date) {
         self.id = id
         self.descricao = descricao
+        self.nome = nome
+        self.data = data
     }
     
 }

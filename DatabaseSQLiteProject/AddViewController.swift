@@ -19,6 +19,8 @@ class AddViewController: UIViewController {
     @IBOutlet weak var cadastrarButton: UIButton!
     
     
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,15 +43,27 @@ class AddViewController: UIViewController {
     
     
     
+    //Insert a new to do.
     
-    
+    @IBAction func cadastraTarefa(_ sender: Any) {
+        
+        if (nomeTarefa.text?.isEmpty)! || descricaoTarefa.text.isEmpty || dataLimite == nil{
+            
+            print("Nao pode inserir. Sem dados.")
+            
+        }else{
+            
+            TabelaDAO.shared.insert(cnome: nomeTarefa.text!, cdescricao: descricaoTarefa.text!, cdata: dataLimite.date)
+            
+        }
+
+        
+    }
     
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    
     
     
 

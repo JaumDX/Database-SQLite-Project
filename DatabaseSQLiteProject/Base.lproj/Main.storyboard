@@ -105,6 +105,9 @@
                                 <state key="normal" title="Cadastrar">
                                     <color key="titleColor" red="0.1932146991" green="0.15000000599999999" blue="0.15000000599999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="cadastraTarefa:" destination="xBU-6B-jEF" eventType="touchUpInside" id="CjC-yW-z5n"/>
+                                </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IES-vX-u2S">
                                 <rect key="frame" x="38" y="397" width="299" height="101"/>
@@ -173,6 +176,6 @@
         <image name="paper texture" width="2808" height="2106"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nqJ-0k-OXD"/>
+        <segue reference="6wo-fi-ku6"/>
     </inferredMetricsTieBreakers>
 </document>

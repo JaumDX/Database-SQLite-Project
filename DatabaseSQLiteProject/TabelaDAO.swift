@@ -18,9 +18,11 @@ class TabelaDAO {
     
     //Database Expressions.
     
-    private let contacts = Table("contacts")
+    private let tarefas = Table("contacts")
     private let id = Expression<Int64>("id") //NomeDaConstante = Expressao<Tipo>("NomeDaExpressao")
+    private let nome = Expression<String>("nome")
     private let descricao = Expression<String>("descricao")
+    private let data = Expression<Date>("data")
     
     
     private init(){
@@ -57,8 +59,10 @@ class TabelaDAO {
         
         
         do {
-            try db!.run(contacts.create(ifNotExists: true) { table in
-                table.column(id, primaryKey: true)
+            try db!.run(tarefas.create(ifNotExists: true) { table in
+                table.column(id, primaryKey: .autoincrement)
+                table.column(nome)
+                table.column(data)
                 table.column(descricao)
                 
                 })
@@ -70,18 +74,50 @@ class TabelaDAO {
     }
     
     
-    //Function to insert at table.
+    //MARK: CRUD
     
-    func insert(cdescricao : String){
+    
+    //Insert data
+    func insert(cnome : String, cdescricao : String, cdata: Date){
         
         do {
-            let id = try db!.run(contacts.insert(descricao <- cdescricao))
+            let id = try db!.run(tarefas.insert(nome <- cnome, descricao <- cdescricao, data <- cdata))
+            print("Insert successful!!")
             print(id)
         } catch  {
             print("Couldn't insert at database.")
         }
         
     }
+    
+    
+    
+    //Get all data
+    
+    func getAll() -> [Tarefa]{
+        
+        var tarefas = [Tarefa]()
+        
+        do {
+            for tarefa in try db!.prepare(self.tarefas){
+                
+                
+                print("id: \(tarefa[id])   --   nome: \(tarefa[nome])  -- descricao: \(tarefa[descricao]) -- data: \(tarefa[data]))")
+                
+                tarefas.append(Tarefa(id: tarefa[id], nome: tarefa[nome], descricao: tarefa[descricao], data: tarefa[data]))
+            
+            }
+            
+            print("Success getting data.")
+        } catch  {
+            print("Couldn't find anything.")
+        }
+        
+        
+        return tarefas
+        
+    }
+    
     
     
 }
