@@ -60,6 +60,8 @@ class TabelaDAO {
         
         do {
             try db!.run(tarefas.create(ifNotExists: true) { table in
+                
+                
                 table.column(id, primaryKey: .autoincrement)
                 table.column(nome)
                 table.column(data)
@@ -115,6 +117,56 @@ class TabelaDAO {
         
         
         return tarefas
+        
+    }
+    
+    
+    //Delete data
+    
+    func delete(cid: Int64) -> Bool{
+        
+        do {
+            
+            let tarefa = tarefas.filter(id == cid)
+
+            try db!.run(tarefa.delete())
+            
+            print("Delete successful!")
+            
+            return true
+            
+        } catch  {
+            
+            print("Couldn't delete anything")
+            
+            return false
+        }
+        
+    }
+    
+    
+    //Update
+    
+    func update(cid : Int64, novaTarefa : Tarefa){
+        
+
+        do {
+            
+            let tarefa = tarefas.filter(id == cid)
+            
+            
+            if try db!.run(tarefa.update(nome <- novaTarefa.nome, descricao <- novaTarefa.descricao, data <- novaTarefa.data!)) > 0{
+                
+                print("Update successful.")
+                
+            }else{
+                
+                print("Couldn't find this item on database.")
+            }
+        } catch  {
+            print("Couldn't update anything.")
+        }
+
         
     }
     

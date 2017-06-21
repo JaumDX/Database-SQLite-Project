@@ -20,12 +20,31 @@ class AddViewController: UIViewController {
     
     
     
+    //Variaveis uteis.
+    
+    var edita = false
+    var id : Int64?
+    var nome: String?
+    var descricao: String?
+    var data: Date?
+    
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVisual()   // Setup borders to some fields.
         dataLimite.minimumDate = Date()  // Set the actual date/time as minimum.
+        
+        if(edita){
+            
+            nomeTarefa.text = nome!
+            descricaoTarefa.text = descricao!
+            dataLimite.date = data!
+            cadastrarButton.setTitle("Update", for: .normal)
+            
+            
+        }
         
     }
     
@@ -43,21 +62,35 @@ class AddViewController: UIViewController {
     
     
     
-    //Insert a new to do.
+    //Insert a new to do or update.
     
     @IBAction func cadastraTarefa(_ sender: Any) {
         
-        if (nomeTarefa.text?.isEmpty)! || descricaoTarefa.text.isEmpty || dataLimite == nil{
+        if !edita {  //Will insert a new to do
+            if (nomeTarefa.text?.isEmpty)! || descricaoTarefa.text.isEmpty || dataLimite == nil{
+                
+                print("Nao pode inserir. Sem dados.")
+                
+            }else{
+                
+                TabelaDAO.shared.insert(cnome: nomeTarefa.text!, cdescricao: descricaoTarefa.text!, cdata: dataLimite.date)
+                performSegue(withIdentifier: "TerminaCadastro", sender: nil)
+            }
+        }else{ // Will update.
             
-            print("Nao pode inserir. Sem dados.")
+            let novaTarefa = Tarefa(id: id!, nome: nomeTarefa.text!, descricao: descricaoTarefa.text!, data: dataLimite.date)
             
-        }else{
             
-            TabelaDAO.shared.insert(cnome: nomeTarefa.text!, cdescricao: descricaoTarefa.text!, cdata: dataLimite.date)
+            print(id!)
+            
+            
+            TabelaDAO.shared.update(cid: id!, novaTarefa: novaTarefa)
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstView") as! ViewController
+            
+            self.present(vc, animated: true, completion: nil)
             
         }
-
-        
     }
     
     

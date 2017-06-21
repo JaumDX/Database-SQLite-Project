@@ -10,7 +10,7 @@ import Foundation
 
 class Tarefa {
     
-    private let id: Int64?
+    let id: Int64?
     var descricao: String
     var nome: String
     var data: Date?
