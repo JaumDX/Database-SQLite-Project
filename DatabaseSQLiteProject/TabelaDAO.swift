@@ -79,6 +79,7 @@ class TabelaDAO {
     //MARK: CRUD
     
     
+    
     //Insert data
     func insert(cnome : String, cdescricao : String, cdata: Date){
         
@@ -91,6 +92,7 @@ class TabelaDAO {
         }
         
     }
+    
     
     
     
@@ -121,6 +123,7 @@ class TabelaDAO {
     }
     
     
+    
     //Delete data
     
     func delete(cid: Int64) -> Bool{
@@ -145,6 +148,7 @@ class TabelaDAO {
     }
     
     
+    
     //Update
     
     func update(cid : Int64, novaTarefa : Tarefa){
@@ -153,7 +157,6 @@ class TabelaDAO {
         do {
             
             let tarefa = tarefas.filter(id == cid)
-            
             
             if try db!.run(tarefa.update(nome <- novaTarefa.nome, descricao <- novaTarefa.descricao, data <- novaTarefa.data!)) > 0{
                 

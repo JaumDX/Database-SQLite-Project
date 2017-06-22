@@ -74,7 +74,11 @@ class AddViewController: UIViewController {
             }else{
                 
                 TabelaDAO.shared.insert(cnome: nomeTarefa.text!, cdescricao: descricaoTarefa.text!, cdata: dataLimite.date)
-                performSegue(withIdentifier: "TerminaCadastro", sender: nil)
+                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstView") as! ViewController
+                
+                self.present(vc, animated: true, completion: nil)
+                
             }
         }else{ // Will update.
             
