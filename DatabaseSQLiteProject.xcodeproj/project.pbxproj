@@ -14,6 +14,8 @@
 		756707A81EF8C407006C5E2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756707A61EF8C407006C5E2A /* Main.storyboard */; };
 		756707AA1EF8C407006C5E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 756707A91EF8C407006C5E2A /* Assets.xcassets */; };
 		756707AD1EF8C407006C5E2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756707AB1EF8C407006C5E2A /* LaunchScreen.storyboard */; };
+		758F92091EFC3B79005C1A9C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758F92081EFC3B79005C1A9C /* CloudKit.framework */; };
+		758F920B1EFC3B9D005C1A9C /* TabelaCK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758F920A1EFC3B9D005C1A9C /* TabelaCK.swift */; };
 		75A825691EF8C657008E9408 /* TabelaDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A825681EF8C657008E9408 /* TabelaDAO.swift */; };
 		75A8256B1EF8CAB6008E9408 /* Tarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A8256A1EF8CAB6008E9408 /* Tarefa.swift */; };
 		C11F86744D3AAC5AD9E48055 /* Pods_DatabaseSQLiteProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1AED7CFF38018DD079C4F3C /* Pods_DatabaseSQLiteProject.framework */; };
@@ -30,6 +32,9 @@
 		756707A91EF8C407006C5E2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		756707AC1EF8C407006C5E2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		756707AE1EF8C407006C5E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		758F92011EFC3758005C1A9C /* DatabaseSQLiteProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DatabaseSQLiteProject.entitlements; sourceTree = "<group>"; };
+		758F92081EFC3B79005C1A9C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		758F920A1EFC3B9D005C1A9C /* TabelaCK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabelaCK.swift; sourceTree = "<group>"; };
 		75A825681EF8C657008E9408 /* TabelaDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabelaDAO.swift; sourceTree = "<group>"; };
 		75A8256A1EF8CAB6008E9408 /* Tarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tarefa.swift; sourceTree = "<group>"; };
 		C1AED7CFF38018DD079C4F3C /* Pods_DatabaseSQLiteProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DatabaseSQLiteProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C11F86744D3AAC5AD9E48055 /* Pods_DatabaseSQLiteProject.framework in Frameworks */,
+				758F92091EFC3B79005C1A9C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +57,7 @@
 		31C81D966E5BB84ECCF02A40 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				758F92081EFC3B79005C1A9C /* CloudKit.framework */,
 				C1AED7CFF38018DD079C4F3C /* Pods_DatabaseSQLiteProject.framework */,
 			);
 			name = Frameworks;
@@ -77,6 +84,7 @@
 		756707A11EF8C407006C5E2A /* DatabaseSQLiteProject */ = {
 			isa = PBXGroup;
 			children = (
+				758F92011EFC3758005C1A9C /* DatabaseSQLiteProject.entitlements */,
 				75A825661EF8C62A008E9408 /* Data */,
 				75A825651EF8C624008E9408 /* Controller */,
 				75A825641EF8C620008E9408 /* View */,
@@ -117,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				75A825681EF8C657008E9408 /* TabelaDAO.swift */,
+				758F920A1EFC3B9D005C1A9C /* TabelaCK.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -177,6 +186,14 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = GP7RJ6T62Z;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -269,6 +286,7 @@
 				756707A51EF8C407006C5E2A /* ViewController.swift in Sources */,
 				75A825691EF8C657008E9408 /* TabelaDAO.swift in Sources */,
 				75A8256B1EF8CAB6008E9408 /* Tarefa.swift in Sources */,
+				758F920B1EFC3B9D005C1A9C /* TabelaCK.swift in Sources */,
 				756707A31EF8C407006C5E2A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,10 +413,11 @@
 			baseConfigurationReference = 280E0AFAA3B7EA294230B8DD /* Pods-DatabaseSQLiteProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DatabaseSQLiteProject/DatabaseSQLiteProject.entitlements;
 				DEVELOPMENT_TEAM = GP7RJ6T62Z;
 				INFOPLIST_FILE = DatabaseSQLiteProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.timedossonhos.DatabaseSQLiteProject;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.joaovitor.DatabaseSQLiteProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -409,10 +428,11 @@
 			baseConfigurationReference = C862324E3F4FDE39AFA12DA9 /* Pods-DatabaseSQLiteProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DatabaseSQLiteProject/DatabaseSQLiteProject.entitlements;
 				DEVELOPMENT_TEAM = GP7RJ6T62Z;
 				INFOPLIST_FILE = DatabaseSQLiteProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.timedossonhos.DatabaseSQLiteProject;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.joaovitor.DatabaseSQLiteProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

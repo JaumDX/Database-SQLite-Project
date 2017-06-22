@@ -55,6 +55,8 @@ class SearchTableViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         cell.textLabel?.text = tarefas[indexPath.row].nome
+        
+        cell.detailTextLabel?.text = tarefas[indexPath.row].descricao
 
         return cell
     }
