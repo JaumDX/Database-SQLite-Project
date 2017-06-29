@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class AddViewController: UIViewController {
     
@@ -49,6 +50,15 @@ class AddViewController: UIViewController {
     }
     
     
+    @IBAction func cancelaAdd(_ sender: Any) {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstView") as! ViewController
+        
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
+    
     
     //MARK: Setup Visual
     
@@ -74,6 +84,29 @@ class AddViewController: UIViewController {
             }else{
                 
                 TabelaDAO.shared.insert(cnome: nomeTarefa.text!, cdescricao: descricaoTarefa.text!, cdata: dataLimite.date)
+                
+                ////// Teste ////
+                
+                
+                let newToDo = CKRecord(recordType: "Teste")
+                
+                newToDo["Nome"] = nomeTarefa.text! as CKRecordValue
+                
+                print("Ta aqui")
+                
+                let publicData = CKContainer.default().privateCloudDatabase
+                
+                
+                publicData.save(newToDo) { (record : CKRecord?, error :Error?) in
+                    if error == nil{
+                        print("Data stored in cloud")
+                    }
+                    
+                }
+
+                //////////////
+                
+//                TabelaCK.shared.insertNewToDo(nome: nomeTarefa.text!, descricao: descricaoTarefa.text!, data: dataLimite.date)
                 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstView") as! ViewController
                 

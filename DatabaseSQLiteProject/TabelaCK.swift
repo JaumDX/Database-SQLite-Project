@@ -15,9 +15,6 @@ class TabelaCK{
     static let shared : TabelaCK = TabelaCK()
     
     
-    private let container = CKContainer.default()
-
-    
     init() {
         
         
@@ -25,16 +22,21 @@ class TabelaCK{
     }
 
     
-    func insertNewToDo(tarefa : Tarefa){
+    func insertNewToDo(nome: String, descricao : String, data : Date){
         
-        let newToDo = CKRecord(recordType: "Tarefa")
+        let newToDo = CKRecord(recordType: "Teste")
         
-        newToDo["Tarefa"] = tarefa as? CKRecordValue
+        newToDo["Nome"] = nome as CKRecordValue
         
-        let publicData = container.publicCloudDatabase
+        print("Ta aqui")
+        
+        let publicData = CKContainer.default().privateCloudDatabase
+        
+        
         publicData.save(newToDo) { (record : CKRecord?, error :Error?) in
-            
-            print("Data stored in cloud")
+            if error == nil{
+                print("Data stored in cloud")
+            }
             
         }
 

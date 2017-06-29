@@ -100,5 +100,18 @@ class SearchTableViewController: UITableViewController{
         
         
     }
+    
+    
+    
+    @IBAction func cancelaSearch(_ sender: Any) {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstView") as! ViewController
+        
+        self.present(vc, animated: true, completion: nil)
+        
+        
+    }
+    
+    
 
 }

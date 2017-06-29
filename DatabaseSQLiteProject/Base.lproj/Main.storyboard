@@ -118,7 +118,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cadastro de Tarefa" id="yIY-v4-3Ri"/>
+                    <navigationItem key="navigationItem" title="Cadastro de Tarefa" id="yIY-v4-3Ri">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b7R-5N-eON">
+                            <connections>
+                                <action selector="cancelaAdd:" destination="xBU-6B-jEF" id="oxj-1z-gVi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cadastrarButton" destination="pcB-2n-wJq" id="T4s-gh-o1x"/>
                         <outlet property="dataLimite" destination="IES-vX-u2S" id="aFb-Eg-kjA"/>
@@ -157,9 +163,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="MKP-kA-oOE">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="jWH-KL-DwZ" detailTextLabel="aWb-zL-tZ2" rowHeight="65" style="IBUITableViewCellStyleSubtitle" id="onH-2o-mHY">
-                                <rect key="frame" x="0.0" y="28" width="375" height="65"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="onH-2o-mHY" id="HbQ-bX-Vli">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
@@ -189,7 +200,13 @@
                             <outlet property="delegate" destination="o4m-PD-Hcz" id="cBr-if-Gea"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tarefas" id="COk-0d-nXt"/>
+                    <navigationItem key="navigationItem" title="Tarefas" id="COk-0d-nXt">
+                        <barButtonItem key="leftBarButtonItem" title="Volta" id="SwS-O8-KpZ">
+                            <connections>
+                                <action selector="cancelaSearch:" destination="o4m-PD-Hcz" id="rQ5-RR-hYN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myTable" destination="Vwa-mY-KhE" id="d2w-Yg-AwC"/>
                         <segue destination="xBU-6B-jEF" kind="show" identifier="Teste" id="JOe-b2-kCM"/>
