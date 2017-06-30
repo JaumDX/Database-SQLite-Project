@@ -29,6 +29,7 @@ class AddViewController: UIViewController {
     var descricao: String?
     var data: Date?
     
+    @IBOutlet weak var cancelButton: UIButton!
     
     
 
@@ -43,7 +44,7 @@ class AddViewController: UIViewController {
             descricaoTarefa.text = descricao!
             dataLimite.date = data!
             cadastrarButton.setTitle("Update", for: .normal)
-            
+            cancelButton.alpha = 0
             
         }
         
