@@ -111,7 +111,7 @@ class AddViewController: UIViewController {
             
             TabelaDAO.shared.update(cid: id!, novaTarefa: novaTarefa)
             
-            CloudKitFuncs.shared.update(novoNome: nomeTarefa.text!, novaDescricao: descricaoTarefa.text!, novaData: dataLimite.date)
+            CloudKitFuncs.shared.update(nome: nome!, descricao: descricao!, data: data!, novaTarefa: novaTarefa)
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstView") as! ViewController
             

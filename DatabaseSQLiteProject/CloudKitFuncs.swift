@@ -104,10 +104,10 @@ class CloudKitFuncs: NSObject {
     
     
     //MARK: Update
-    func update(novoNome : String, novaDescricao : String, novaData : Date){
+    func update(nome : String, descricao : String, data : Date, novaTarefa : Tarefa){
         
-        let predicateNome = NSPredicate(format: "Nome == %@", argumentArray: [novoNome])
-        let predicateDescricao = NSPredicate(format: "Descricao == %@", argumentArray: [novaDescricao])
+        let predicateNome = NSPredicate(format: "Nome == %@", argumentArray: [nome])
+        let predicateDescricao = NSPredicate(format: "Descricao == %@", argumentArray: [descricao])
         //let predicateData = NSPredicate(format: "Data == %@", argumentArray: [data])
         let predicateC = NSCompoundPredicate(type: .and , subpredicates: [predicateNome, predicateDescricao])
         
@@ -121,16 +121,10 @@ class CloudKitFuncs: NSObject {
                     
                     let record = results?.first!
                     
-                    record?.setObject(novoNome as CKRecordValue?, forKey: "Nome")
-                    record?.setObject(novaData as CKRecordValue?, forKey: "Data")
-                    record?.setObject(novaDescricao as CKRecordValue?, forKey: "Descricao")
+                    record?.setObject(novaTarefa.nome as CKRecordValue?, forKey: "Nome")
+                    record?.setObject(novaTarefa.data as CKRecordValue?, forKey: "Data")
+                    record?.setObject(novaTarefa.descricao as CKRecordValue?, forKey: "Descricao")
 
-                    
-                    
-                    
-                    
-                    
-                    
                     self.container.save(record!, completionHandler: { (result : CKRecord?, error : Error?) in
                         
                         if error == nil{
@@ -140,16 +134,12 @@ class CloudKitFuncs: NSObject {
                         }else{
                             
                             print(error!)
-                        
                         }
-                        
                     })
-                    
                     
                 }else{
                     
                     print("No data was found.")
-                    
                 }
                 
             }else{
