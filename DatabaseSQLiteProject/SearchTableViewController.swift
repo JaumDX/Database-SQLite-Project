@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class SearchTableViewController: UITableViewController{
     
@@ -20,7 +21,9 @@ class SearchTableViewController: UITableViewController{
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
         tarefas = TabelaDAO.shared.getAll()
+        
     }
 
     override func viewDidLoad() {
@@ -70,6 +73,12 @@ class SearchTableViewController: UITableViewController{
             
             if TabelaDAO.shared.delete(cid: tarefas[indexPath.row].id!){
                 
+                //Deleta na nuvem.
+                CloudKitFuncs.shared.deleta(nome: tarefas[indexPath.row].nome
+                    , descricao: tarefas[indexPath.row].descricao, data: tarefas[indexPath.row].data!)
+                
+                
+                
                 tarefas.remove(at: indexPath.row)
                 
                 self.myTable.deleteRows(at: [indexPath], with: .fade)
@@ -93,8 +102,7 @@ class SearchTableViewController: UITableViewController{
         myVc.nome = tarefas[indexPath.row].nome
         myVc.descricao = tarefas[indexPath.row].descricao
         myVc.data = tarefas[indexPath.row].data
-        
-        
+
         self.navigationController?.pushViewController(myVc, animated: true)
         
         
@@ -112,6 +120,4 @@ class SearchTableViewController: UITableViewController{
         
     }
     
-    
-
 }

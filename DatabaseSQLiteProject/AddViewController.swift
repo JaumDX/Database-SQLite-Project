@@ -32,6 +32,9 @@ class AddViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     
     
+    let container = CKContainer.default().privateCloudDatabase //Link to our database.
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,30 +87,14 @@ class AddViewController: UIViewController {
                 
             }else{
                 
+                //Insere no banco local
                 TabelaDAO.shared.insert(cnome: nomeTarefa.text!, cdescricao: descricaoTarefa.text!, cdata: dataLimite.date)
                 
-                ////// Teste ////
                 
                 
-                let newToDo = CKRecord(recordType: "Teste")
+                //Insere no Cloud Kitß
+                CloudKitFuncs.shared.save(nome: nomeTarefa.text!, descricao: descricaoTarefa.text!, data: dataLimite.date)
                 
-                newToDo["Nome"] = nomeTarefa.text! as CKRecordValue
-                
-                print("Ta aqui")
-                
-                let publicData = CKContainer.default().privateCloudDatabase
-                
-                
-                publicData.save(newToDo) { (record : CKRecord?, error :Error?) in
-                    if error == nil{
-                        print("Data stored in cloud")
-                    }
-                    
-                }
-
-                //////////////
-                
-//                TabelaCK.shared.insertNewToDo(nome: nomeTarefa.text!, descricao: descricaoTarefa.text!, data: dataLimite.date)
                 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstView") as! ViewController
                 
@@ -123,6 +110,8 @@ class AddViewController: UIViewController {
             
             
             TabelaDAO.shared.update(cid: id!, novaTarefa: novaTarefa)
+            
+            CloudKitFuncs.shared.update(novoNome: nomeTarefa.text!, novaDescricao: descricaoTarefa.text!, novaData: dataLimite.date)
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstView") as! ViewController
             
