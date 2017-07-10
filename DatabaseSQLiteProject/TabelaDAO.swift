@@ -25,6 +25,13 @@ class TabelaDAO {
     private let data = Expression<Date>("data")
     
     
+    
+    /**
+     
+     Inicializa o banco.
+     
+     
+     */
     private init(){
         
         
@@ -47,7 +54,11 @@ class TabelaDAO {
         
     }
 
-    //Function to create a table
+    /**
+     
+     Cria uma nova table.
+     
+     */
     
     func createTable(){
         
@@ -80,7 +91,20 @@ class TabelaDAO {
     
     
     
-    //Insert data
+    /**
+     
+     Insere os dados no banco.
+     
+     - parameters:
+     
+        - cnome: Uma string contendo um nome.
+        - cdescricao: Uma string contendo uma descricao.
+        - cdata: Uma data.
+     
+     
+     
+     
+     */
     func insert(cnome : String, cdescricao : String, cdata: Date){
         
         do {
@@ -96,7 +120,17 @@ class TabelaDAO {
     
     
     
-    //Get all data
+    /**
+    
+    Recupera todos os dados no banco.
+    
+    
+    - Returns: Um array contendo todos os dados.
+    
+    
+    
+    
+    */
     
     func getAll() -> [Tarefa]{
         
@@ -124,7 +158,21 @@ class TabelaDAO {
     
     
     
-    //Delete data
+    /**
+     
+     Deleta dados no banco.
+     
+     - parameters:
+     
+         - cid: Id do dado a ser atualizado.
+     
+     
+     - Returns: Um booleano indicando se a operação foi sucedida.
+     
+     
+     
+     
+     */
     
     func delete(cid: Int64) -> Bool{
         
@@ -149,7 +197,19 @@ class TabelaDAO {
     
     
     
-    //Update
+    /**
+     
+     Atualiza os dados no banco.
+     
+     - parameters:
+     
+         - cid: Id do dado a ser atualizado.
+         - novaTarefa: Novos dados a serem atualizados.
+     
+     
+     
+     
+     */
     
     func update(cid : Int64, novaTarefa : Tarefa){
         

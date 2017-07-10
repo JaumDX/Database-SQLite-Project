@@ -63,13 +63,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		755368021F05D6C7002F7F45 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
 		756707961EF8C407006C5E2A = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				756707A21EF8C407006C5E2A /* AppDelegate.swift */,
-				755368021F05D6C7002F7F45 /* Extensions */,
 				75A825671EF8C632008E9408 /* View Controllers */,
 			);
 			name = Controller;

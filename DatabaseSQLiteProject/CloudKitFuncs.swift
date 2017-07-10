@@ -21,8 +21,6 @@ class CloudKitFuncs: NSObject {
     //Inicializa o container.
     override init() {
         
-        
-        
     }
     
     

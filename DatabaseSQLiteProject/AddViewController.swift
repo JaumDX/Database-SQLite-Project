@@ -18,24 +18,29 @@ class AddViewController: UIViewController {
     @IBOutlet weak var descricaoTarefa: UITextView!
     @IBOutlet weak var dataLimite: UIDatePicker!
     @IBOutlet weak var cadastrarButton: UIButton!
-    
-    
-    
-    //Variaveis uteis.
-    
-    var edita = false
-    var id : Int64?
-    var nome: String?
-    var descricao: String?
-    var data: Date?
-    
     @IBOutlet weak var cancelButton: UIButton!
     
     
-    let container = CKContainer.default().privateCloudDatabase //Link to our database.
+    
+    //MARK: Variáveis Uteis
+    
+    /// Usada para saber quando o usuário pode dar update em um dado
+    var edita = false
+    var id : Int64? /// Variável que recebe valor de outra View
+    var nome: String? /// Variável que recebe valor de outra View
+    var descricao: String? /// Variável que recebe valor de outra View
+    var data: Date? /// Variável que recebe valor de outra View
     
     
-
+    
+    ///Link para o database.
+    let container = CKContainer.default().privateCloudDatabase
+    
+    
+    //MARK: Funcoes
+    
+    
+    ///View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVisual()   // Setup borders to some fields.
@@ -53,7 +58,22 @@ class AddViewController: UIViewController {
         
     }
     
+    /**
+     
+     Define bordas lara botoes.
+     
+     */
+    func setupVisual(){
+        
+        self.descricaoTarefa.layer.borderWidth = 1
+        self.dataLimite.layer.borderWidth = 1
+        self.cadastrarButton.layer.borderWidth = 1
+        
+    }
     
+    /**
+     Cancela uma adiçao.
+     */
     @IBAction func cancelaAdd(_ sender: Any) {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstView") as! ViewController
@@ -64,19 +84,10 @@ class AddViewController: UIViewController {
     
     
     
-    //MARK: Setup Visual
     
-    func setupVisual(){
-        
-        self.descricaoTarefa.layer.borderWidth = 1
-        self.dataLimite.layer.borderWidth = 1
-        self.cadastrarButton.layer.borderWidth = 1
-        
-    }
-    
-    
-    
-    //Insert a new to do or update.
+    /**
+        Cadastra uma nova tarefa.
+     */
     
     @IBAction func cadastraTarefa(_ sender: Any) {
         
@@ -120,7 +131,9 @@ class AddViewController: UIViewController {
         }
     }
     
-    
+    /**
+     Faz algo quando solta o touch.
+     */
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
